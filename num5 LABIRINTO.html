@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Labirinto</title>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+body {
+  background: rgb(0, 0, 0) url("img_tree.gif") no-repeat fixed center;
+}
+
+#maze {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.wall {
+  background-color: rgb(255, 0, 0);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
+.player {
+  background-color: rgb(30, 255, 0);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 470px; /* Posição inicial do jogador */
+  left: 2px; /* Posição inicial do jogador */
+}
+</style>
+</head>
+<body>
+<div id="maze">
+<div class="wall" style="top: 0px; left: 120px;"></div>
+<div class="wall" style="top: 35px; left: 120px;"></div>
+  <div class="wall" style="top: 40px; left: 120px;"></div>
+  <div class="wall" style="top: 80px; left: 120px;"></div>
+  <div class="wall" style="top: 120px; left: 120px;"></div>
+  <div class="wall" style="top: 160px; left: 120px;"></div>
+  <div class="wall" style="top: 50px; left: 120px;"></div>
+  <div class="wall" style="top: 80px; left: 120px;"></div>
+  <div class="wall" style="top: 120px; left: 120px;"></div>
+  <div class="wall" style="top: 160px; left: 120px;"></div>
+  <div class="wall" style="top: 200px; left: 120px;"></div>
+  <div class="wall" style="top: 460px; left: 120px;"></div>
+  <div class="wall" style="top: 380px; left: 120px;"></div>
+  <div class="wall" style="top: 200px; left: 160px;"></div>
+  <div class="wall" style="top: 0px; left: 160px;"></div>
+  <div class="wall" style="top: 460px; left: 160px;"></div>
+  <div class="wall" style="top: 380px; left: 160px;"></div>
+  <div class="wall" style="top: 200px; left: 200px;"></div>
+  <div class="wall" style="top: 200px; left: 240px;"></div>
+  <div class="wall" style="top: 460px; left: 240px;"></div>
+  <div class="wall" style="top: 380px; left: 240px;"></div>
+  <div class="wall" style="top: 80px; left: 240px;"></div>
+  <div class="wall" style="top: 120px; left: 240px;"></div>
+  <div class="wall" style="top: 0px; left: 240px;"></div>
+  <div class="wall" style="top: 40px; left: 240px;"></div>
+  <div class="wall" style="top: 310px; left: 240px;"></div>
+  <div class="wall" style="top: 340px; left: 240px;"></div>
+  <div class="wall" style="top: 200px; left: 280px;"></div>
+  <div class="wall" style="top: 240px; left: 280px;"></div>
+  <div class="wall" style="top: 280px; left: 280px;"></div>
+  <div class="wall" style="top: 280px; left: 240px;"></div>
+  <div class="wall" style="top: 280px; left: 200px;"></div>
+  <div class="wall" style="top: 280px; left: 160px;"></div>
+  <div class="wall" style="top: 280px; left: 120px;"></div>
+  <div class="wall" style="top: 320px; left: 120px;"></div>
+  <div class="wall" style="top: 350px; left: 120px;"></div>
+  <div class="wall" style="top: 20px; left: 315px;"></div>
+  <div class="wall" style="top: 0px; left: 315px;"></div>
+  <div class="wall" style="top: 60px; left: 315px;"></div>
+  <div class="wall" style="top: 80px; left: 315px;"></div>
+  <div class="wall" style="top: 120px; left: 315px;"></div>
+  <div class="wall" style="top: 123px; left: 315px;"></div>
+  <div class="wall" style="top: 350px; left: 240px;"></div>
+  <div class="wall" style="top: 300px; left: 370px;"></div>
+  <div class="wall" style="top: 200px; left: 370px;"></div>
+  <div class="wall" style="top: 160px; left: 370px;"></div>
+  <div class="wall" style="top: 120px; left: 370px;"></div>
+  <div class="wall" style="top: 80px; left: 370px;"></div>
+  <div class="wall" style="top: 40px; left: 370px;"></div>
+  <div class="wall" style="top: 0px; left: 370px;"></div>
+  <div class="wall" style="top: 60px; left: 370px;"></div>
+  <div class="wall" style="top: 100px; left: 370px;"></div>
+  <div class="wall" style="top: 130px; left: 370px;"></div>
+  <div class="wall" style="top: 170px; left: 370px;"></div>
+  <div class="wall" style="top: 220px; left: 370px;"></div>
+  <div class="wall" style="top: 380px; left: 370px;"></div>
+  <div class="wall" style="top: 460px; left: 370px;"></div>
+  <div class="wall" style="top: 0px; left: 450px;"></div>
+  <div class="wall" style="top: 20px; left: 450px;"></div>
+  <div class="wall" style="top: 40px; left: 450px;"></div>
+  <div class="wall" style="top: 800px; left: 450px;"></div>
+  <div class="wall" style="top: 120px; left: 450px;"></div>
+  <div class="wall" style="top: 160px; left: 450px;"></div>
+  <div class="wall" style="top: 200px; left: 450px;"></div>
+  <div class="wall" style="top: 240px; left: 450px;"></div>
+  <div class="wall" style="top: 280px; left: 450px;"></div>
+  <div class="wall" style="top: 320px; left: 450px;"></div>
+  <div class="wall" style="top: 350px; left: 450px;"></div>
+  <div class="wall" style="top: 380px; left: 450px;"></div>
+  <div class="wall" style="top: 460px; left: 450px;"></div>
+  <div class="wall" style="top: 380px; left: 560px;"></div>
+  <div class="wall" style="top: 300px; left: 560px;"></div>
+  <div class="wall" style="top: 340px; left: 560px;"></div>
+  <div class="wall" style="top: 280px; left: 560px;"></div>
+  <div class="wall" style="top: 250px; left: 560px;"></div>
+  <div class="wall" style="top: 230px; left: 560px;"></div>
+  <div class="wall" style="top: 460px; left: 560px;"></div>
+  <div class="wall" style="top: 210px; left: 560px;"></div>
+  <div class="wall" style="top: 180px; left: 560px;"></div>
+  <div class="wall" style="top: 150px; left: 560px;"></div>
+  <div class="wall" style="top: 120px; left: 560px;"></div>
+  <div class="wall" style="top: 40px; left: 560px;"></div>
+  <div class="wall" style="top: 80px; left: 560px;"></div>
+  <div class="wall" style="top: 20px; left: 560px;"></div>
+  <div class="wall" style="top: 0px; left: 560px;"></div>
+  <div class="wall" style="top: 80px; left: 40px;"></div>
+  <div class="wall" style="top: 40px; left: 40px;"></div>
+  <div class="wall" style="top: 100px; left: 40px;"></div>
+  <div class="wall" style="top: 120px; left: 40px;"></div>
+  <div class="wall" style="top: 200px; left: 40px;"></div>
+  <div class="wall" style="top: 240px; left: 40px;"></div>
+  <div class="wall" style="top: 280px; left: 40px;"></div>
+  <div class="wall" style="top: 320px; left: 40px;"></div>
+  <div class="wall" style="top: 360px; left: 40px;"></div>
+  <div class="wall" style="top: 380px; left: 40px;"></div>
+  <div class="wall" style="top: 420px; left: 40px;"></div>
+  <div class="wall" style="top: 460px; left: 40px;"></div>
+  <div class="wall" style="top: 60px; left: 40px;"></div>
+  <div class="wall" style="top: 40px; left: 40px;"></div>
+   <div class="player"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const player = document.querySelector('.player'); //jogador
+  const walls = document.querySelectorAll('.wall'); //parede
+  const maze = document.getElementById('maze'); //mapa
+
+  document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    let x = parseInt(player.style.left) || 2; // Se left não estiver definido, use 10
+    let y = parseInt(player.style.top) || 470; // Se top não estiver definido, use 380
+    const step = 9; // passos
+
+    switch (key) {
+      case 'ArrowUp':
+        if (y > 0) y -= step; // Verifica se o jogador não está na borda superior
+        break;
+      case 'ArrowDown':
+        if (y < maze.clientHeight - player.clientHeight) y += step; // Verifica se o jogador não está na borda inferior
+        break;
+      case 'ArrowLeft':
+        if (x > 0) x -= step; // Verifica se o jogador não está na borda esquerda
+        break;
+      case 'ArrowRight':
+        if (x < maze.clientWidth - player.clientWidth) x += step; // Verifica se o jogador não está na borda direita
+        break;
+    }
+
+    if (!isCollision(x, y)) {
+      player.style.top = y + 'px';
+      player.style.left = x + 'px';
+    } else {
+      alert("Você tocou na parede parceiro! Vai para o início.");
+      player.style.top = '470px'; // Volta para a posição inicial
+      player.style.left = '2px'; // Volta para a posição inicial
+    }
+  });
+
+  function isCollision(x, y) { //colisao
+    for (const wall of walls) {
+      const wallRect = wall.getBoundingClientRect();
+      const playerRect = player.getBoundingClientRect();
+      if (
+        playerRect.left < wallRect.right &&
+        playerRect.right > wallRect.left &&
+        playerRect.top < wallRect.bottom &&
+        playerRect.bottom > wallRect.top
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+});
+</script>
+</body>
+</html>
